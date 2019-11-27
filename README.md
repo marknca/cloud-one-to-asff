@@ -7,3 +7,7 @@ System events from Workload Security don't fit into the format as it was designe
 ## Architecture
 
 ![Normalizing security events](docs/normalizing-aws-security-events.jpg)
+
+AWS Lambda function #1 [save_ws_events_as_asff.py](save_ws_events_as_asff.py) is triggered whenever Cloud One Workload Security sends and event to the specific Amazon SNS Topic.
+
+This function then reads the event in Cloud One's format and—for security events only—converts it to Amazon's Security Finding Format.
