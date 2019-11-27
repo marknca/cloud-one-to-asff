@@ -39,7 +39,7 @@ This allows the function to write to CloudWatch Logs (handy for debugging and mo
 
 ## Results
 
-The ASFF log files will be stored in the specified S3 bucket by `year/month/day` and then with a file name consisting of `YYYY-MM-DD-HH-MM-SS-WORKLOAD_MANAGER_ID-AWS_ACCOUNT-INSTANCE_ID-REGION-WORKLOAD_TENANT_ID-WORKLOAD_EVENT_ID`
+The ASFF log files will be stored in the specified S3 bucket by `year/month/day` and then with a file name consisting of `YYYY-MM-DD-HH-MM-SS-WORKLOAD_MANAGER_ID-AWS_ACCOUNT-INSTANCE_ID-REGION-WORKLOAD_TENANT_ID-WORKLOAD_EVENT_ID.log`. Events are stored one per file to make querying simpler.
 
 This can be adjusted on lines #88-95, 100 (completing the `id_key` variable) and lines #258-261 (completing the `key` variable).
 
