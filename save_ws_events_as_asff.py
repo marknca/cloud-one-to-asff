@@ -214,9 +214,13 @@ def lambda_handler(event, context):
 	# 5. Send select events (in AFF) to the AWS Security Hub
 	total_events = 0
 	saved_events = 0
+	if not 'S3_BUCKET_NAME' in os.environ:
+		print("S3_BUCKET_NAME is a required environment variable")
+		return None
 	s3_bucket_name = os.environ['S3_BUCKET_NAME']
 	print('Using S3 bucket: {}'.format(s3_bucket_name))
-	s3 = boto3.resource('s3')
+	region = os.environ['REGION'] if 'REGION' in os.environ else None
+	s3 = boto3.resource('s3', region_name=region)
 	s3_bucket = b = s3.Bucket(s3_bucket_name)
 	
 	if 'Records' in event:
