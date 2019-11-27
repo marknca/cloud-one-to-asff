@@ -37,6 +37,14 @@ s3:PutObject # should be restricted to the specified bucket
 
 This allows the function to write to CloudWatch Logs (handy for debugging and monitoring) and to write the actual log file to the specified Amazon S3 bucket.
 
+## Results
+
+The ASFF log files will be stored in the specified S3 bucket by `year/month/day` and then with a file name consisting of `YYYY-MM-DD-HH-MM-SS-WORKLOAD_MANAGER_ID-AWS_ACCOUNT-INSTANCE_ID-REGION-WORKLOAD_TENANT_ID-WORKLOAD_EVENT_ID`
+
+This can be adjusted on lines #88-95, 100 (completing the `id_key` variable) and lines #258-261 (completing the `key` variable).
+
+Remember, Amazon S3 creates "folders" based on the `/` character in an objects `.key` property.
+
 ## Support
 
 This is an Open Source community project. Project contributors may be able to help, depending on their time and availability. Please be specific about what you're trying to do, your system, and steps to reproduce the problem.
