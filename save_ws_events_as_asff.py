@@ -270,5 +270,5 @@ def lambda_handler(event, context):
 	return {
 		'total_events': total_events,
 		'saved_events': saved_events,
-		'ratio': (total_events - saved_events),
+		'issues': (total_events - saved_events),
 	}								
